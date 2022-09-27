@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.opentelemetry.exporter.logging.SystemOutLogExporter;
 
 public class HandlingCheckBoxes {
 	
@@ -64,6 +65,14 @@ public static WebDriver driver;
 		
 		System.out.println("Total Number of check boxes : " + count);
 		
+	}
+	
+	public static void printCheckBoxNames(By by) {
+		List<WebElement> chkBox = driver.findElements(by);
+		for(int i = 0; i < chkBox.size(); i++) {
+			System.out.println("Value : " + chkBox.get(i).getAttribute("value"));
+			    
+		}
 	}
 
 	public static void main(String[] args) {
